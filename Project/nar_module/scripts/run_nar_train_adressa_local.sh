@@ -7,14 +7,14 @@ MODEL_DIR='/tmp/chameleon/jobs/'${JOB_ID} && \
 echo 'Running training job and outputing to '${MODEL_DIR} && \
 python -m nar_module.nar.nar_trainer_adressa \
 	--model_dir ${MODEL_DIR} \
-	--train_set_path_regex "${DATA_DIR}/trained/Project/sessions_tfrecords_by_hour/adressa_sessions_*.tfrecord.gz" \
+	--train_set_path_regex "${DATA_DIR}/sessions_tfrecords_by_hour/adressa_sessions_*.tfrecord.gz" \
 	--train_files_from 0 \
 	--train_files_up_to 5 \
 	--training_hours_for_each_eval 1 \
 	--save_results_each_n_evals 1 \
-	--acr_module_resources_path ${DATA_DIR}/trained/Project/pickles/acr_articles_metadata_embeddings_supervised_cnn.pickle \
-	--load_thumbnail_embaddings_path ${DATA_DIR}/trained/Project/pickles/thumbnail_to_embedding.pickle \
-	--nar_module_preprocessing_resources_path ${DATA_DIR}/trained/Project/pickles/nar_preprocessing_resources.pickle \
+	--acr_module_resources_path ${DATA_DIR}/pickles/acr_articles_metadata_embeddings_supervised_cnn.pickle \
+	--load_thumbnail_embaddings_path ${DATA_DIR}/pickles/thumbnail_to_embedding.pickle \
+	--nar_module_preprocessing_resources_path ${DATA_DIR}/pickles/nar_preprocessing_resources.pickle \
 	--batch_size 64 \
 	--truncate_session_length 20 \
 	--learning_rate 0.0003 \
